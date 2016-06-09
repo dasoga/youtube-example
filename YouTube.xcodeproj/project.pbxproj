@@ -17,6 +17,7 @@
 		2C4B29571D077634004B3C30 /* YouTubeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B29561D077634004B3C30 /* YouTubeUITests.swift */; };
 		2C4B29661D07903B004B3C30 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B29651D07903B004B3C30 /* Extensions.swift */; };
 		2C4B29691D0790AC004B3C30 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B29681D0790AC004B3C30 /* VideoCell.swift */; };
+		2C4B296F1D08D839004B3C30 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B296E1D08D839004B3C30 /* MenuBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		2C4B29581D077634004B3C30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C4B29651D07903B004B3C30 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Helpers/Extensions.swift; sourceTree = "<group>"; };
 		2C4B29681D0790AC004B3C30 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoCell.swift; path = View/VideoCell.swift; sourceTree = "<group>"; };
+		2C4B296E1D08D839004B3C30 /* MenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuBar.swift; path = View/MenuBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				2C4B29681D0790AC004B3C30 /* VideoCell.swift */,
+				2C4B296E1D08D839004B3C30 /* MenuBar.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			files = (
 				2C4B29691D0790AC004B3C30 /* VideoCell.swift in Sources */,
 				2C4B293C1D077634004B3C30 /* YouTube.xcdatamodeld in Sources */,
+				2C4B296F1D08D839004B3C30 /* MenuBar.swift in Sources */,
 				2C4B29361D077634004B3C30 /* HomeViewController.swift in Sources */,
 				2C4B29341D077634004B3C30 /* AppDelegate.swift in Sources */,
 				2C4B29661D07903B004B3C30 /* Extensions.swift in Sources */,
@@ -520,6 +524,7 @@
 				2C4B295D1D077634004B3C30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2C4B295E1D077634004B3C30 /* Build configuration list for PBXNativeTarget "YouTubeTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +533,7 @@
 				2C4B29601D077634004B3C30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2C4B29611D077634004B3C30 /* Build configuration list for PBXNativeTarget "YouTubeUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +542,7 @@
 				2C4B29631D077634004B3C30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
