@@ -19,6 +19,7 @@
 		2C4B29691D0790AC004B3C30 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B29681D0790AC004B3C30 /* VideoCell.swift */; };
 		2C4B296F1D08D839004B3C30 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B296E1D08D839004B3C30 /* MenuBar.swift */; };
 		2C7E198D1D10483D00638CE9 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E198C1D10483D00638CE9 /* Video.swift */; };
+		2C8FF3961D18844F00751368 /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8FF3951D18844F00751368 /* SettingsLauncher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		2C4B29681D0790AC004B3C30 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoCell.swift; path = View/VideoCell.swift; sourceTree = "<group>"; };
 		2C4B296E1D08D839004B3C30 /* MenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuBar.swift; path = View/MenuBar.swift; sourceTree = "<group>"; };
 		2C7E198C1D10483D00638CE9 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Video.swift; path = Model/Video.swift; sourceTree = "<group>"; };
+		2C8FF3951D18844F00751368 /* SettingsLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsLauncher.swift; path = Controller/SettingsLauncher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				2C4B29351D077634004B3C30 /* HomeViewController.swift */,
+				2C8FF3951D18844F00751368 /* SettingsLauncher.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				2C4B293C1D077634004B3C30 /* YouTube.xcdatamodeld in Sources */,
 				2C4B296F1D08D839004B3C30 /* MenuBar.swift in Sources */,
 				2C4B29361D077634004B3C30 /* HomeViewController.swift in Sources */,
+				2C8FF3961D18844F00751368 /* SettingsLauncher.swift in Sources */,
 				2C4B29341D077634004B3C30 /* AppDelegate.swift in Sources */,
 				2C7E198D1D10483D00638CE9 /* Video.swift in Sources */,
 				2C4B29661D07903B004B3C30 /* Extensions.swift in Sources */,
