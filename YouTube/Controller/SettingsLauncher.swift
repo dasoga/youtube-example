@@ -27,6 +27,8 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource ,UICollectionViewDe
         return [Setting(name: "Settings", imageName: "icon_settings"), Setting(name: "Terms & privacy policy", imageName: "icon_privacy"), Setting(name: "Send Feedback", imageName: "icon_feedback"), Setting(name: "Help", imageName: "icon_help"), Setting(name: "Switch Account", imageName: "icon_switch_account"), Setting(name: "Cancel", imageName: "icon_cancel")]
     }()
     
+    var homeController: HomeViewController?
+    
     override init() {
         super.init()
         
@@ -72,14 +74,20 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource ,UICollectionViewDe
         }
     }
     
-    func handleDismiss(){
-        UIView.animateWithDuration(0.4) {
+    func handleDismiss(setting: Setting){
+        
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
             self.blackView.alpha = 0
             
             if let window = UIApplication.sharedApplication().keyWindow{
-            self.collectionView.frame  = CGRectMake(0, window.frame.height, self.collectionView.frame.width, self.collectionView.frame.height)
+                self.collectionView.frame  = CGRectMake(0, window.frame.height, self.collectionView.frame.width, self.collectionView.frame.height)
+            }
+        }) { (completed: Bool) in
+            if setting.name != "" && setting.name != "Cancel"{
+                self.homeController?.showControllerForSettings(setting)
             }
         }
+
     }
     
     
@@ -104,6 +112,11 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource ,UICollectionViewDe
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
         return 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let setting = settings[indexPath.item]
+        handleDismiss(setting)
     }
     
 }
