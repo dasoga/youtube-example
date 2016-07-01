@@ -36,41 +36,10 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     var videos: [Video]?
     
     func fetchVideos(){
-        let url = NSURL(string: "https://s3-us-west-2.amazonaws.com/youtubeassets/home.json")
-        NSURLSession.sharedSession().dataTaskWithURL(url!){ (data, response, error ) in
-            if error != nil{
-                print(error)
-                return
-            }
-            
-            do {
-                let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers)
-                self.videos = [Video]()
-                
-                for dictionary in json as! [[String: AnyObject]]{
-                    let video = Video()
-                    
-                    video.title = dictionary["title"] as? String
-                    video.thumbnailImageName = dictionary["thumbnail_image_name"] as? String
-                    
-                    let channelDictionary = dictionary["channel"] as! [String:AnyObject]
-                    let channel = Channel()
-                    channel.name = channelDictionary["name"] as? String
-                    channel.profileImageName = channelDictionary["profile_image_name"] as? String
-                    
-                    video.channel = channel
-                    self.videos?.append(video)
-                }
-                
-                dispatch_async(dispatch_get_main_queue(), { 
-                    self.collectionView?.reloadData()
-                })
-                
-                
-            }catch let jsonError{
-                print(jsonError)
-            }
-        }.resume()
+        ApiService.sharedInstance.fetchVideos { (videos: [Video]) in
+            self.videos = videos
+            self.collectionView?.reloadData()
+        }
     }
     
     override func viewDidLoad() {
@@ -78,11 +47,10 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
         
         fetchVideos()
         
-        navigationItem.title = "Home"
         navigationController?.navigationBar.translucent = false
         
         let titleLabel = UILabel(frame: CGRectMake(0,0,view.frame.width - 32, view.frame.height))
-        titleLabel.text = "Home"
+        titleLabel.text = "  Home"
         titleLabel.textColor = UIColor.whiteColor()
         titleLabel.font = UIFont.systemFontOfSize(20)
         navigationItem.titleView = titleLabel
@@ -135,10 +103,22 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     }()
     
     private func setupMenuBar(){
+        
+        navigationController?.hidesBarsOnSwipe = true
+        
+        let redView = UIView()
+        redView.backgroundColor = UIColor.rgb(230, green: 32, blue: 31)
+        view.addSubview(redView)
+        
+        view.addConstraintsWithFormat("H:|[v0]|", views: redView)
+        view.addConstraintsWithFormat("V:[v0(50)]", views: redView)
+        
         view.addSubview(menuBar)
         
         view.addConstraintsWithFormat("H:|[v0]|", views: menuBar)
-        view.addConstraintsWithFormat("V:|[v0(50)]", views: menuBar)
+        view.addConstraintsWithFormat("V:[v0(50)]", views: menuBar)
+        
+        menuBar.topAnchor.constraintEqualToAnchor(topLayoutGuide.bottomAnchor).active = true
     }
     
     

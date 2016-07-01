@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C3D611D1D26E1190046D2F9 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D611C1D26E1190046D2F9 /* ApiService.swift */; };
 		2C4B29341D077634004B3C30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B29331D077634004B3C30 /* AppDelegate.swift */; };
 		2C4B29361D077634004B3C30 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B29351D077634004B3C30 /* HomeViewController.swift */; };
 		2C4B29391D077634004B3C30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4B29371D077634004B3C30 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C3D611C1D26E1190046D2F9 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiService.swift; path = ApiService/ApiService.swift; sourceTree = "<group>"; };
 		2C4B29301D077634004B3C30 /* YouTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C4B29331D077634004B3C30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C4B29351D077634004B3C30 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C3D611B1D26E1040046D2F9 /* ApiService */ = {
+			isa = PBXGroup;
+			children = (
+				2C3D611C1D26E1190046D2F9 /* ApiService.swift */,
+			);
+			name = ApiService;
+			sourceTree = "<group>";
+		};
 		2C4B29271D077634004B3C30 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +121,7 @@
 		2C4B29321D077634004B3C30 /* YouTube */ = {
 			isa = PBXGroup;
 			children = (
+				2C3D611B1D26E1040046D2F9 /* ApiService */,
 				2C7E198B1D10482300638CE9 /* Model */,
 				2C4B296A1D0790EE004B3C30 /* Controller */,
 				2C4B29671D07906F004B3C30 /* View */,
@@ -315,6 +326,7 @@
 				2C4B29361D077634004B3C30 /* HomeViewController.swift in Sources */,
 				2C8FF3961D18844F00751368 /* SettingsLauncher.swift in Sources */,
 				2C4B29341D077634004B3C30 /* AppDelegate.swift in Sources */,
+				2C3D611D1D26E1190046D2F9 /* ApiService.swift in Sources */,
 				2C7E198D1D10483D00638CE9 /* Video.swift in Sources */,
 				2C4B29661D07903B004B3C30 /* Extensions.swift in Sources */,
 				2CCDC8371D1C3FF400E2D83F /* SettingCell.swift in Sources */,
