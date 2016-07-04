@@ -19,7 +19,7 @@ class MenuBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         return cv
     }()
     
-    let imagesNames = ["home","user","play","history"]
+    let imagesNames = ["home","play","history","user"]
     
     var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
     
