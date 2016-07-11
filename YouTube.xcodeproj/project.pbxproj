@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C23D5591D33527A003B7414 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C23D5581D33527A003B7414 /* TrendingCell.swift */; };
+		2C23D55B1D33588F003B7414 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C23D55A1D33588F003B7414 /* SubscriptionCell.swift */; };
 		2C3D611D1D26E1190046D2F9 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D611C1D26E1190046D2F9 /* ApiService.swift */; };
 		2C3D611F1D2AEAEF0046D2F9 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D611E1D2AEAEF0046D2F9 /* FeedCell.swift */; };
 		2C4B29341D077634004B3C30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B29331D077634004B3C30 /* AppDelegate.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C23D5581D33527A003B7414 /* TrendingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrendingCell.swift; path = View/TrendingCell.swift; sourceTree = "<group>"; };
+		2C23D55A1D33588F003B7414 /* SubscriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscriptionCell.swift; path = View/SubscriptionCell.swift; sourceTree = "<group>"; };
 		2C3D611C1D26E1190046D2F9 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiService.swift; path = ApiService/ApiService.swift; sourceTree = "<group>"; };
 		2C3D611E1D2AEAEF0046D2F9 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedCell.swift; path = View/FeedCell.swift; sourceTree = "<group>"; };
 		2C4B29301D077634004B3C30 /* YouTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +175,8 @@
 				2C4B296E1D08D839004B3C30 /* MenuBar.swift */,
 				2CCDC8361D1C3FF400E2D83F /* SettingCell.swift */,
 				2C3D611E1D2AEAEF0046D2F9 /* FeedCell.swift */,
+				2C23D5581D33527A003B7414 /* TrendingCell.swift */,
+				2C23D55A1D33588F003B7414 /* SubscriptionCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -329,8 +335,10 @@
 				2C4B29361D077634004B3C30 /* HomeViewController.swift in Sources */,
 				2C3D611F1D2AEAEF0046D2F9 /* FeedCell.swift in Sources */,
 				2C8FF3961D18844F00751368 /* SettingsLauncher.swift in Sources */,
+				2C23D55B1D33588F003B7414 /* SubscriptionCell.swift in Sources */,
 				2C4B29341D077634004B3C30 /* AppDelegate.swift in Sources */,
 				2C3D611D1D26E1190046D2F9 /* ApiService.swift in Sources */,
+				2C23D5591D33527A003B7414 /* TrendingCell.swift in Sources */,
 				2C7E198D1D10483D00638CE9 /* Video.swift in Sources */,
 				2C4B29661D07903B004B3C30 /* Extensions.swift in Sources */,
 				2CCDC8371D1C3FF400E2D83F /* SettingCell.swift in Sources */,
