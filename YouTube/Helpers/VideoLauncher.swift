@@ -11,28 +11,98 @@ import AVFoundation
 
 class VideoPlayerView: UIView {
     
+    let controlsContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 0, alpha: 1)
+        return view
+    }()
+    
+    let activityIndicator: UIActivityIndicatorView = {
+        let aiv = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        aiv.translatesAutoresizingMaskIntoConstraints = false
+        aiv.hidesWhenStopped = true
+        aiv.startAnimating()
+        return aiv
+    }()
+    
+    lazy var pausePlayButton: UIButton = {
+        let button = UIButton(type: .System)
+        let image = UIImage(named: "pauseButton")
+        button.setImage(image, forState: .Normal)
+        button.tintColor = .whiteColor()
+        button.hidden = true
+        button.addTarget(self, action: #selector(handlePause), forControlEvents: .TouchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    var player: AVPlayer?
+    var isPlaying = false
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setupPlayerView()
+        
+        controlsContainerView.frame = frame
+        addSubview(controlsContainerView)
+        
+        controlsContainerView.addSubview(activityIndicator)
+        activityIndicator.centerXAnchor.constraintEqualToAnchor(centerXAnchor).active = true
+        activityIndicator.centerYAnchor.constraintEqualToAnchor(centerYAnchor).active = true
+        
+        controlsContainerView.addSubview(pausePlayButton)
+        pausePlayButton.centerXAnchor.constraintEqualToAnchor(centerXAnchor).active = true
+        pausePlayButton.centerYAnchor.constraintEqualToAnchor(centerYAnchor).active = true
+        pausePlayButton.widthAnchor.constraintEqualToConstant(50).active = true
+        pausePlayButton.heightAnchor.constraintEqualToConstant(50).active = true
+        
         backgroundColor = .blackColor()
         
-        // Warning use your own url here.
-        let urlString = "https://firebasestorage.googleapis.com/v0/b/chatrealtime-1e87d.appspot.com/o/message_movies%2F1EEC633D-F705-498C-8971-17C984A62FB7.mov?alt=media&token=fecdf347-0790-4f67-b4ee-7d84fce4a6d2"
-        if let url = NSURL(string: urlString){
-            let player = AVPlayer(URL: url)
-            
-            let playerLayer = AVPlayerLayer(player: player)
-            self.layer.addSublayer(playerLayer)
-            playerLayer.frame = self.frame
-            
-            player.play()
-        }
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    func setupPlayerView(){
+        let urlString = "https://firebasestorage.googleapis.com/v0/b/chatrealtime-1e87d.appspot.com/o/message_movies%2F1EEC633D-F705-498C-8971-17C984A62FB7.mov?alt=media&token=fecdf347-0790-4f67-b4ee-7d84fce4a6d2"
+        if let url = NSURL(string: urlString){
+            player = AVPlayer(URL: url)
+            
+            let playerLayer = AVPlayerLayer(player: player)
+            self.layer.addSublayer(playerLayer)
+            playerLayer.frame = self.frame
+            
+            player?.play()
+            
+            player?.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .New, context: nil)
+            
+        }
+    }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if keyPath == "currentItem.loadedTimeRanges" {
+            activityIndicator.stopAnimating()
+            controlsContainerView.backgroundColor = .clearColor()
+            pausePlayButton.hidden = false
+            isPlaying = true
+        }
+    }
+    
+    // MARK: - Handle functions
+    func handlePause(){
+        if isPlaying{
+            player?.pause()
+            pausePlayButton.setImage(UIImage(named: "playButton"), forState: .Normal)
+        }else{
+            player?.play()
+            pausePlayButton.setImage(UIImage(named: "pauseButton"), forState: .Normal)
+        }
+        
+        isPlaying = !isPlaying
+    }
     
     
 }
