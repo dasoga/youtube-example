@@ -65,6 +65,11 @@ class FeedCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
         return 0
     }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let videoLaunchet = VideoLauncher()
+        videoLaunchet.showViewPlayer()
+    }
 
 
 }

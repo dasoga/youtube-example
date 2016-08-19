@@ -24,6 +24,7 @@
 		2C4B296F1D08D839004B3C30 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B296E1D08D839004B3C30 /* MenuBar.swift */; };
 		2C7E198D1D10483D00638CE9 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E198C1D10483D00638CE9 /* Video.swift */; };
 		2C8FF3961D18844F00751368 /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8FF3951D18844F00751368 /* SettingsLauncher.swift */; };
+		2CB7A3801D67520D002D9B57 /* VideoLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB7A37F1D67520D002D9B57 /* VideoLauncher.swift */; };
 		2CCDC8371D1C3FF400E2D83F /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDC8361D1C3FF400E2D83F /* SettingCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		2C4B296E1D08D839004B3C30 /* MenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuBar.swift; path = View/MenuBar.swift; sourceTree = "<group>"; };
 		2C7E198C1D10483D00638CE9 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Video.swift; path = Model/Video.swift; sourceTree = "<group>"; };
 		2C8FF3951D18844F00751368 /* SettingsLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsLauncher.swift; path = Controller/SettingsLauncher.swift; sourceTree = "<group>"; };
+		2CB7A37F1D67520D002D9B57 /* VideoLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoLauncher.swift; path = Helpers/VideoLauncher.swift; sourceTree = "<group>"; };
 		2CCDC8361D1C3FF400E2D83F /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingCell.swift; path = View/SettingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				2C4B29651D07903B004B3C30 /* Extensions.swift */,
+				2CB7A37F1D67520D002D9B57 /* VideoLauncher.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				2C4B29691D0790AC004B3C30 /* VideoCell.swift in Sources */,
 				2C4B293C1D077634004B3C30 /* YouTube.xcdatamodeld in Sources */,
 				2C4B296F1D08D839004B3C30 /* MenuBar.swift in Sources */,
+				2CB7A3801D67520D002D9B57 /* VideoLauncher.swift in Sources */,
 				2C4B29361D077634004B3C30 /* HomeViewController.swift in Sources */,
 				2C3D611F1D2AEAEF0046D2F9 /* FeedCell.swift in Sources */,
 				2C8FF3961D18844F00751368 /* SettingsLauncher.swift in Sources */,
