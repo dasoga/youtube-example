@@ -28,14 +28,14 @@ class MenuBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        collectionView.registerClass(MenuCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView.register(MenuCell.self, forCellWithReuseIdentifier: "cellId")
         
         addSubview(collectionView)
         addConstraintsWithFormat("H:|[v0]|", views: collectionView)
         addConstraintsWithFormat("V:|[v0]|", views: collectionView)
         
-        let selectedIndex = NSIndexPath(forItem: 0, inSection: 0)
-        collectionView.selectItemAtIndexPath(selectedIndex, animated: true, scrollPosition: .None)
+        let selectedIndex = IndexPath(item: 0, section: 0)
+        collectionView.selectItem(at: selectedIndex, animated: true, scrollPosition: UICollectionViewScrollPosition())
         
         setupHorizontalBar()
     }
@@ -52,39 +52,39 @@ class MenuBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         horizontalBarView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(horizontalBarView)
         
-        horizontalBarLeftAnchorConstraint = horizontalBarView.leftAnchor.constraintEqualToAnchor(self.leftAnchor)
-        horizontalBarLeftAnchorConstraint?.active = true
+        horizontalBarLeftAnchorConstraint = horizontalBarView.leftAnchor.constraint(equalTo: self.leftAnchor)
+        horizontalBarLeftAnchorConstraint?.isActive = true
         
-        horizontalBarView.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor).active = true
+        horizontalBarView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         
-        horizontalBarView.widthAnchor.constraintEqualToAnchor(self.widthAnchor, multiplier: 1/4).active = true
+        horizontalBarView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/4).isActive = true
         
-        horizontalBarView.heightAnchor.constraintEqualToConstant(4).active = true
+        horizontalBarView.heightAnchor.constraint(equalToConstant: 4).isActive = true
         
         
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cellId", forIndexPath: indexPath) as! MenuCell
-        cell.imageView.image = UIImage(named: imagesNames[indexPath.item])?.imageWithRenderingMode(.AlwaysTemplate)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! MenuCell
+        cell.imageView.image = UIImage(named: imagesNames[indexPath.item])?.withRenderingMode(.alwaysTemplate)
         cell.tintColor = UIColor.rgb(91, green: 14, blue: 13)
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(frame.width / 4, frame.height)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: frame.width / 4, height: frame.height)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        let x = CGFloat(indexPath.item) * frame.width / 4
 //        
 //        horizontalBarLeftAnchorConstraint?.constant = x
@@ -102,20 +102,20 @@ class MenuCell: BaseCell {
     
     let imageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: "home")?.imageWithRenderingMode(.AlwaysTemplate)
+        iv.image = UIImage(named: "home")?.withRenderingMode(.alwaysTemplate)
         iv.tintColor = UIColor.rgb(91, green: 14, blue: 13)
         return iv
     }()
     
-    override var highlighted: Bool{
+    override var isHighlighted: Bool{
         didSet{
-            imageView.tintColor = highlighted ? UIColor.whiteColor() : UIColor.rgb(91, green: 14, blue: 13)
+            imageView.tintColor = isHighlighted ? UIColor.white : UIColor.rgb(91, green: 14, blue: 13)
         }
     }
     
-    override var selected: Bool{
+    override var isSelected: Bool{
         didSet{
-            imageView.tintColor = selected ? UIColor.whiteColor() : UIColor.rgb(91, green: 14, blue: 13)
+            imageView.tintColor = isSelected ? UIColor.white : UIColor.rgb(91, green: 14, blue: 13)
         }
     }
     
@@ -126,8 +126,8 @@ class MenuCell: BaseCell {
         addConstraintsWithFormat("H:[v0(28)]", views: imageView)
         addConstraintsWithFormat("V:[v0(28)]", views: imageView)
         
-        addConstraint(NSLayoutConstraint(item: imageView, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: imageView, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
     }
     
     

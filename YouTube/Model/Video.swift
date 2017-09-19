@@ -14,15 +14,15 @@ class Video: NSObject {
     var thumbnail_image_name: String?
     var title: String?
     var number_of_views: NSNumber?
-    var uploadDate: NSDate?
+    var uploadDate: Date?
     var duration: NSNumber?
     
     var channel: Channel?
     
-    override func setValue(value: AnyObject?, forKey key: String) {
+    override func setValue(_ value: Any?, forKey key: String) {
         if key == "channel"{            
             self.channel = Channel()
-            self.channel?.setValuesForKeysWithDictionary(value as! [String:AnyObject])
+            self.channel?.setValuesForKeys(value as! [String:AnyObject])
         }else{
             super.setValue(value, forKey: key)
         }
@@ -30,7 +30,7 @@ class Video: NSObject {
     
     init(dictionary: [String: AnyObject]){
         super.init()
-        setValuesForKeysWithDictionary(dictionary)
+        setValuesForKeys(dictionary)
     }
     
 }

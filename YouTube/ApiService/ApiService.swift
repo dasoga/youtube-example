@@ -14,28 +14,28 @@ class ApiService: NSObject {
     
     let baseUrl = "https://s3-us-west-2.amazonaws.com/youtubeassets/"
     
-    func fetchVideos(completion: ([Video]) -> ()){
+    func fetchVideos(_ completion: @escaping ([Video]) -> ()){
         fetchFeedForUrlString("\(baseUrl)home.json", completion: completion)
     }
     
-    func fetchTrendingFeed(completion: ([Video]) -> ()){
+    func fetchTrendingFeed(_ completion: @escaping ([Video]) -> ()){
         fetchFeedForUrlString("\(baseUrl)trending.json", completion: completion)
     }
     
-    func fetchSubscriptionFeed(completion: ([Video]) -> ()){
+    func fetchSubscriptionFeed(_ completion: @escaping ([Video]) -> ()){
         fetchFeedForUrlString("\(baseUrl)subscriptions.json", completion: completion)
     }
     
-    func fetchFeedForUrlString(urlString:String, completion: ([Video]) -> ()){
-        let url = NSURL(string: urlString)
-        NSURLSession.sharedSession().dataTaskWithURL(url!){ (data, response, error ) in
+    func fetchFeedForUrlString(_ urlString:String, completion: @escaping ([Video]) -> ()){
+        let url = URL(string: urlString)
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error ) in
             if error != nil{
                 print(error)
                 return
             }
             
             do {
-                if let unwrappedData = data, jsonDictionaries = try NSJSONSerialization.JSONObjectWithData(unwrappedData, options: .MutableContainers) as?  [[String: AnyObject]]{
+                if let unwrappedData = data, let jsonDictionaries = try JSONSerialization.jsonObject(with: unwrappedData, options: .mutableContainers) as?  [[String: AnyObject]]{
                   
 //                    var videos = [Video]()
 //                    
@@ -45,7 +45,7 @@ class ApiService: NSObject {
 //                    }
                     let videos = jsonDictionaries.map({return Video(dictionary: $0)})
                     
-                    dispatch_async(dispatch_get_main_queue(), {
+                    DispatchQueue.main.async(execute: {
                         completion(videos)
                     })
                     
@@ -55,7 +55,7 @@ class ApiService: NSObject {
             }catch let jsonError{
                 print(jsonError)
             }
-            }.resume()
+            }).resume()
     }
 }
 
